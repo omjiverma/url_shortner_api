@@ -9,7 +9,7 @@ A simple URL shortener service built using Node.js and Express.js.
 -   Built with Node.js and Express.js for fast and efficient performance
 - 
 ## Getting Started
-1.  Clone the repository: `git clone https://github.com/<your-username>/url-shortener.git`
+1.  Clone the repository: `git clone https://github.com/omjiverma/url_shortner_api.git`
     
 2.  Install the dependencies: `npm install`
     
