@@ -1,15 +1,24 @@
-const os = require("os");
-const shortid = require('shortid');
-const db = require("../models/shortUrl.model");
-const shortUrl = require('../models/shortUrl.model')
+const shortid = require("shortid");
+const shortUrlModel = require("../models/shortUrl.model");
 
-function getShortUrl(req,res){
-    const id = shortid.generate()
-    const shortUrl = `${process.env.DOMAIN}/${id}`
-    return res.status(200).json(shortUrl);
+async function createShortenedUrl(req, res) {
+  try {
+    const shortId = shortid.generate();
+    const { url } = req.body;
 
+    const shortUrl = await shortUrlModel.create({
+      originalUrl:url,
+      urlShortId: shortId,
+    });
+
+    const shortenedUrl = `${process.env.DOMAIN}/${shortUrl.urlShortId}`
+    res.status(200).json({ shortenedUrl });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error creating shortened URL" });
+  }
 }
 
 module.exports = {
-    getShortUrl
-}
+  createShortenedUrl,
+};

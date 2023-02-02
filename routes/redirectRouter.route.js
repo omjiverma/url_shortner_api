@@ -1,8 +1,7 @@
 const express = require("express");
 const redirectRouter = express.Router();
+const redirectShortUrl = require('../controllers/redirect.controller')
 
-redirectRouter.get("/:shortid",(req, res)=>{
-    res.status(200).json(req.params)
-});
+redirectRouter.get("/:shortid",redirectShortUrl);
 
 module.exports = redirectRouter;
