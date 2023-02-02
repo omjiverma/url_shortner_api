@@ -17,7 +17,7 @@ A simple URL shortener service built using Node.js and Express.js.
 
 4. Start the dev server: `npm run dev`
     
-5.  Visit `http://localhost:3000` to use the service.
+5.  Visit `http://localhost:8000` to use the service.
 
 ## Endpoints
 
